@@ -1,0 +1,2 @@
+module TenkensHelper
+end
