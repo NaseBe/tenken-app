@@ -1,0 +1,14 @@
+.shared-footer{
+  width: 100vw;
+  height: 100px;
+  background-color: rgb(47, 47, 47);
+  display: flex;
+  align-items: center;
+}
+
+.footer-link{
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  margin: 0 auto;
+}

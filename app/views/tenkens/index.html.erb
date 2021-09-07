@@ -1,2 +1,37 @@
-<h1>Tenkens#index</h1>
-<p>Find me in app/views/tenkens/index.html.erb</p>
+<%= render "shared/header" %>
+<div class='main'>
+
+<%= form_with class:'create-tenken', local: true do |f| %>
+ <div class='create-tenken-form'>
+  <%= f.text_field :name, class:'create-tenken-input', placeholder: '点検名を入力してくだざい（例：2021年度　夏期教室点検）' %>
+  </div>
+  <%# <input name = "user_id" type="hidden" value=<%= current_user.id %>
+<%= f.submit '点検を作成する', class:'new-btn' %>
+<% end %>
+
+<div class='tenkens'>
+  <div class='tenken-container'>
+    <%= link_to '#', class:'tenken-info' do %>
+      <div class=’tenken-name’>
+      2021年度夏期教室点検
+      </div>
+      <div class='tenken-user'>
+      作成者：山田健太郎
+      </div>
+    <% end %>
+  </div>
+  <div class='tenken-container'>
+  <%= link_to '#', class:'tenken-info' do %>
+    <div class=’tenken-name’>
+2020年度夏期教室点検
+    </div>
+    <div class='tenken-user'>
+作成者：田中次郎
+    </div>
+    <% end %>
+  </div>
+
+</div>
+</div>
+<%= render "shared/footer" %>
+
