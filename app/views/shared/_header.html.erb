@@ -3,9 +3,11 @@
 <%= link_to 'TenkenApp', '/', class:'header-link' %>
 </div>
 <div class='header-right'>
+ <% if user_signed_in? %>
 <ul class='nav'>
-<li><%= link_to '山田太郎', '#', class:'header-link' %></li>
-<li><%= link_to 'ログアウト', '#', class:'header-link'%></li>
+<li><%= link_to current_user.nickname, edit_user_registration_path, class:'header-link' %></li>
+<li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:'header-link'%></li>
 </ul>
+<% end %>
 </div>
 </header>
