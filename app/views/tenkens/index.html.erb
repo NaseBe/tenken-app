@@ -10,26 +10,18 @@
 <% end %>
 
 <div class='tenkens'>
+  <% @tenkens.each do |tenken| %>
   <div class='tenken-container'>
     <%= link_to '#', class:'tenken-info' do %>
       <div class=’tenken-name’>
-      2021年度夏期教室点検
+      <%= tenken.name %>
       </div>
       <div class='tenken-user'>
-      作成者：山田健太郎
+      <%= tenken.user.nickname %>
       </div>
     <% end %>
   </div>
-  <div class='tenken-container'>
-  <%= link_to '#', class:'tenken-info' do %>
-    <div class=’tenken-name’>
-2020年度夏期教室点検
-    </div>
-    <div class='tenken-user'>
-作成者：田中次郎
-    </div>
-    <% end %>
-  </div>
+  <% end %>
 
 </div>
 </div>
