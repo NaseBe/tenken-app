@@ -1,0 +1,23 @@
+<%= form_with model: current_user, class:'user-registration', local: true do |f| %>
+
+<div class='user-registration-form'>
+<h2>アカウントの編集</h2>
+
+  <div class="registration-form-field">
+    <%= f.label :nickname %><em>(12 characters maximum)</em><br />
+    <%= f.text_field :nickname, autofocus: true,maxlength:'12' %>
+  </div>
+
+  <div class="registration-form-field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "更新", class:'registration-btn' %>
+  </div>
+  <div>
+<% end %>
+
+<%= link_to '戻る', :back %>
+<%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>

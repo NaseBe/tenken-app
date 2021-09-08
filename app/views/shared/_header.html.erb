@@ -5,7 +5,7 @@
 <div class='header-right'>
  <% if user_signed_in? %>
 <ul class='nav'>
-<li><%= link_to current_user.nickname, edit_user_registration_path, class:'header-link' %></li>
+<li><%= link_to current_user.nickname, edit_user_path(current_user), class:'header-link' %></li>
 <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:'header-link'%></li>
 </ul>
 <% end %>
