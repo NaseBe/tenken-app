@@ -11,7 +11,7 @@
 <div class='tenkens'>
   <% @tenkens.each do |tenken| %>
   <div class='tenken-container'>
-    <%= link_to '#', class:'tenken-info' do %>
+    <%= link_to tenken_path(tenken.id), class:'tenken-info' do %>
       <div class=’tenken-name’>
       <%= tenken.name %>
       </div>

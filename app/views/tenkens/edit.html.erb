@@ -1,0 +1,19 @@
+<%= render "shared/header" %>
+<div class='main'>
+
+<div class='tenken-detail'>
+<div class='tenken-detail-name'>
+<%= @tenken.name %>
+</div>
+<%= form_with model: @tenken, class:'create-tenken', local: true do |f| %>
+ <div class='create-tenken-form'>
+  <%= f.text_field :name, class:'create-tenken-input', placeholder: '点検名を入力してくだざい（例：2021年度　夏期教室点検）' %>
+  </div>
+<%= f.submit '変更する', class:'new-btn' %>
+<% end %>
+
+</div>
+</div>
+
+</div>
+<%= render "shared/footer" %>
