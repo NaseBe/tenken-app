@@ -6,8 +6,8 @@
 <%= @tenken.name %>
 </div>
 <div class= 'tenken-edit-delete'>
-<%= link_to '点検名を編集', edit_tenken_path(@tenken.id), class:'tenken-edit-btn' %>
-<%= link_to '点検を削除', '#', class:'tenken-delete-btn' %>
+<%= link_to '点検名を編集する', edit_tenken_path(@tenken.id), class:'tenken-edit-btn' %>
+<%= link_to '点検を削除する', tenken_path(@tenken.id), method: :delete, class:'tenken-delete-btn' %>
 </div>
 </div>
 
