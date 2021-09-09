@@ -1,5 +1,5 @@
 class TenkensController < ApplicationController
-  before_action :set_tenken, only: [:show, :edit, :update]
+  before_action :set_tenken, only: [:show, :edit, :update, :destroy]
   def index
     @tenken = Tenken.new
     @tenkens = Tenken.includes(:user).order('created_at DESC')
@@ -24,6 +24,11 @@ class TenkensController < ApplicationController
     else
       redirect_to action: :edit
     end
+  end
+
+  def destroy
+    @tenken.destroy
+    redirect_to root_path
   end
 
   private
