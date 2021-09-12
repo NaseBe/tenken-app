@@ -19,7 +19,7 @@
 <p>対応中・対応完了の教室</p>
 <% @checksheets.each do |checksheet| %>
 <div class='checksheet-thumbnail'>
-<%= link_to checksheet.classroom.number, '#' %>
+<%= link_to checksheet.classroom.number, tenken_checksheet_path(checksheet.tenken_id, checksheet.id) %>
 </div>
 <% end %>
 </div>
