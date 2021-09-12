@@ -3,4 +3,14 @@ class Checksheet < ApplicationRecord
   belongs_to :classroom 
   belongs_to :tenken
   belongs_to :user
+
+  with_options presence: true do
+    validates :classroom_id, numericality: { other_than: 0, message: "can't be blank" }
+    validates :staff
+    validates :date
+    validates :status
+  end
+
+  validates :projector, :control_panel, :mic, :pc, :bd_dvd_player, :remotes, :ohc, :screen, :ports, :cables, :expendables, :details, :helper
+
 end
