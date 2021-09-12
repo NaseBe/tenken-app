@@ -11,5 +11,13 @@
 </div>
 </div>
 
+<div class='checksheet-containter'>
+<% @checksheets.each do |checksheet| %>
+<div class='checksheet-thumbnail'>
+<%= link_to checksheet.classroom.number, '#' %>
+</div>
+<% end %>
+</div>
+
 </div>
 <%= render "shared/footer" %>

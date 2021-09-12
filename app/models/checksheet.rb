@@ -11,6 +11,4 @@ class Checksheet < ApplicationRecord
     validates :status
   end
 
-  validates :projector, :control_panel, :mic, :pc, :bd_dvd_player, :remotes, :ohc, :screen, :ports, :cables, :expendables, :details, :helper
-
 end
