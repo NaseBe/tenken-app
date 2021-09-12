@@ -10,7 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_08_104555) do
+ActiveRecord::Schema.define(version: 2021_09_09_130016) do
+
+  create_table "checksheets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "classroom_id", null: false
+    t.string "projector"
+    t.string "control_panel"
+    t.string "mic"
+    t.string "pc"
+    t.string "bd_dvd_player"
+    t.string "remotes"
+    t.string "ohc"
+    t.string "screen"
+    t.string "ports"
+    t.string "cables"
+    t.string "expendables"
+    t.text "details"
+    t.string "staff", null: false
+    t.string "helper"
+    t.date "date", null: false
+    t.string "status", null: false
+    t.bigint "tenken_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["tenken_id"], name: "index_checksheets_on_tenken_id"
+    t.index ["user_id"], name: "index_checksheets_on_user_id"
+  end
 
   create_table "tenkens", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -33,5 +59,7 @@ ActiveRecord::Schema.define(version: 2021_09_08_104555) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "checksheets", "tenkens"
+  add_foreign_key "checksheets", "users"
   add_foreign_key "tenkens", "users"
 end

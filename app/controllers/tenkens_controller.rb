@@ -13,6 +13,7 @@ class TenkensController < ApplicationController
   end
 
   def show
+    @checksheets = @tenken.checksheets
   end
 
   def edit
