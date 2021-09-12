@@ -11,7 +11,12 @@
 </div>
 </div>
 
+<div class='start-tenken'>
+<%= link_to "点検を開始", new_tenken_checksheet_path(@tenken.id) %>
+</div>
+
 <div class='checksheet-containter'>
+<p>対応中・対応完了の教室</p>
 <% @checksheets.each do |checksheet| %>
 <div class='checksheet-thumbnail'>
 <%= link_to checksheet.classroom.number, '#' %>
