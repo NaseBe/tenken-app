@@ -29,4 +29,8 @@ class Classroom < ActiveHash::Base
     { id: 26, number: '308' }
     { id: 27, number: '309' }
   ]
+
+  include ActiveHash::Associations
+  has_many :checksheets
+
   end
