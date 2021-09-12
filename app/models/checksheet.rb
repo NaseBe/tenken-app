@@ -10,5 +10,4 @@ class Checksheet < ApplicationRecord
     validates :date
     validates :status
   end
-
 end
