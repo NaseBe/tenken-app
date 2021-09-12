@@ -1,0 +1,59 @@
+<%= render "shared/header" %>
+<div class='main'>
+
+<div class='details'>
+<div class='detailed-classroom'>
+教室番号：<%= @checksheet.classroom.number %>
+</div>
+<div class='detailed-projector'>
+プロジェクター：<%= @checksheet.projector %>
+</div>
+<div class='detailed-conpane'>
+コントロールパネル：<%= @checksheet.control_panel %>
+</div>
+<div class='detailed-mic'>
+マイク：<%= @checksheet.mic %>
+</div>
+<div class='detailed-pc'>
+パソコン：<%= @checksheet.pc %>
+</div>
+<div class='detailed-player'>
+Blu-ray/DVDデッキ：<%= @checksheet.bd_dvd_player %>
+</div>
+<div class='detailed-remotes'>
+リモコン：<%= @checksheet.remotes %>
+</div>
+<div class='detailed-ohc'>
+書画カメラ：<%= @checksheet.ohc %>
+</div>
+<div class='detailed-screen'>
+スクリーン：<%= @checksheet.screen %>
+</div>
+<div class='detailed-ports'>
+持込用端子：<%= @checksheet.ports %>
+</div>
+<div class='detailed-cables'>
+持込用ケーブル：<%= @checksheet.cables %>
+</div>
+<div class='detailed-expendables'>
+消耗品：<%= @checksheet.expendables %>
+</div>
+<div class='detailed-details'>
+詳細：<%= @checksheet.details %>
+</div>
+<div class='detailed-staff'>
+担当者１：<%= @checksheet.staff %>
+</div>
+<div class='detailed-helper'>
+担当者２：<%= @checksheet.helper %>
+</div>
+<div class='detailed-date'>
+実施日：<%= @checksheet.date %>
+</div>
+<div class='detailed-status'>
+進捗状況：<%= @checksheet.status %>
+</div>
+</div>
+<%= link_to '戻る', :back %>
+</div>
+<%= render "shared/footer" %>

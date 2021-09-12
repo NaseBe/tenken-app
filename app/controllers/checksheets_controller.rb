@@ -1,18 +1,23 @@
 class ChecksheetsController < ApplicationController
   before_action :set_tenken
+
   def new
     @users = User.all
   end
+
   def create
     @checksheet = @tenken.checksheets.new(checksheet_params)
     if @checksheet.save
-      redirect_to root_path
+      redirect_to tenken_path(@tenken.id)
     end
   end
+
   def show
+    @checksheet = @tenken.checksheets.find(params[:id])
   end
 
   private
+
   def set_tenken
     @tenken = Tenken.find(params[:tenken_id])
   end
