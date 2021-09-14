@@ -1,6 +1,11 @@
 <%= render "shared/header" %>
 <div class='main'>
 
+<div class= 'checksheet-edit-delete'>
+<%= link_to 'このチェックシートを編集する', edit_tenken_checksheet_path(@tenken.id, @checksheet.id), class:'checksheet-edit-btn' %>
+<%= link_to 'このチェックシートを削除する', tenken_checksheet_path(@tenken.id, @checksheet.id), method: :delete, class:'checksheet-delete-btn' %>
+</div>
+
 <div class='details'>
 <div class='detailed-classroom'>
 教室番号：<%= @checksheet.classroom.number %>

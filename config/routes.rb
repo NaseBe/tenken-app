@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   root to: "tenkens#index"
   resources :users, only: [:edit, :update]
   resources :tenkens, except: :new do
-      resources :checksheets, only: [:new, :create, :show, :edit, :update]
+      resources :checksheets, except: :index
   end
 end

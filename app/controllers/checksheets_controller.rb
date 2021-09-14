@@ -1,9 +1,9 @@
 class ChecksheetsController < ApplicationController
   before_action :set_users
   before_action :set_tenken
-  before_action :set_checksheet, only: [:show, :edit, :update]
+  before_action :set_checksheet, only: [:show, :edit, :update, :destroy]
 
-  def new  
+  def new
   end
 
   def create
@@ -25,6 +25,11 @@ class ChecksheetsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @checksheet.destroy
+    redirect_to tenken_path(@tenken.id)
   end
 
   private
