@@ -6,10 +6,10 @@ class TenkensController < ApplicationController
   end
 
   def create
-    @tenken = Tenken.new(tenken_params)
-    if @tenken.save
+    Tenken.create(tenken_params)
+    
     redirect_to root_path
-    end
+    
   end
 
   def show

@@ -3,7 +3,7 @@
 
 <%= form_with model: @tenken, class:'create-tenken', local: true do |f| %>
  <div class='create-tenken-form'>
-  <%= f.text_field :name, class:'create-tenken-input', placeholder: '点検名を入力してくだざい（例：2021年度　夏期教室点検）' %>
+  <%= f.text_field :name, class:'create-tenken-input', placeholder: '点検名を入力してください（例：2021年度　夏期教室点検）' %>
   </div>
 <%= f.submit '点検を作成する', class:'new-btn' %>
 <% end %>
