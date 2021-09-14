@@ -2,7 +2,7 @@
 <div class='main'>
 <h2 class="checksheet-start">点検結果を入力</h2>
 
-<%= form_with url:"/tenkens/#{@tenken.id}/checksheets", method: :post, class:'create-checksheet', local: true do |f| %>
+<%= form_with model:([@tenken,@checksheet]), class:'create-checksheet', local: true do |f| %>
  <div class='checksheet-classroom'>
  教室番号
   <%= f.collection_select(:classroom_id, Classroom.all, :id, :number, {}, {class:"select-item"}) %>
