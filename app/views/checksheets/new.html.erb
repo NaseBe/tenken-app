@@ -10,103 +10,57 @@
   
   <div class='checksheet-projector'>
   プロジェクター
-  <select name="projector">
-  <option value= "">--</option>
-  <option value= "OK">OK</option>
-  <option value= "NG">NG</option>
-  </select>
+  <%= f.select :projector, [["OK","OK"], ["NG","NG"]], include_blank: "--" %>
   </div>
 
   <div class='checksheet-conpane'>
   コンパネ
-  <select name="control_panel">
-  <option value= "">--</option>
-  <option value= "OK">OK</option>
-  <option value= "NG">NG</option>
-  </select>
+   <%= f.select :control_panel, [["OK","OK"], ["NG","NG"]], include_blank: "--" %>
   </div>
 
   <div class='checksheet-mic'>
   マイク
-  <select name="mic">
-  <option value= "">--</option>
-  <option value= "OK">OK</option>
-  <option value= "NG">NG</option>
-  </select>
+  <%= f.select :mic, [["OK","OK"], ["NG","NG"]], include_blank: "--" %>
   </div>
 
   <div class='checksheet-pc'>
   パソコン
-  <select name="pc">
-  <option value= "">--</option>
-  <option value= "OK">OK</option>
-  <option value= "NG">NG</option>
-  </select>
+  <%= f.select :pc, [["OK","OK"], ["NG","NG"]], include_blank: "--" %>
   </div>
 
   <div class='checksheet-player'>
   Blu-ray/DVDデッキ
-  <select name="bd_dvd_player">
-  <option value= "">--</option>
-  <option value= "OK">OK</option>
-  <option value= "NG">NG</option>
-  </select>
+  <%= f.select :bd_dvd_player, [["OK","OK"], ["NG","NG"]], include_blank: "--" %>
   </div>
 
   <div class='checksheet-remotes'>
   リモコン
-  <select name="remotes">
-  <option value= "">--</option>
-  <option value= "OK">OK</option>
-  <option value= "NG">NG</option>
-  <option value= "電池交換済">電池交換済</option>
-  </select>
+  <%= f.select :remotes, [["OK","OK"], ["NG","NG"], ["電池交換済","電池交換済"]], include_blank: "--" %>
   </div>
 
   <div class='checksheet-ohc'>
   書画カメラ
-  <select name="ohc">
-  <option value= "">--</option>
-  <option value= "OK">OK</option>
-  <option value= "NG">NG</option>
-  </select>
+   <%= f.select :ohc, [["OK","OK"], ["NG","NG"]], include_blank: "--" %>
   </div>
 
   <div class='checksheet-screen'>
   スクリーン
-  <select name="screen">
-  <option value= "">--</option>
-  <option value= "OK">OK</option>
-  <option value= "NG">NG</option>
-  </select>
+  <%= f.select :screen, [["OK","OK"], ["NG","NG"]], include_blank: "--" %>
   </div>
 
   <div class='checksheet-ports'>
   持込用端子
-  <select name="ports">
-  <option value= "">--</option>
-  <option value= "OK">OK</option>
-  <option value= "NG">NG</option>
-  </select>
+   <%= f.select :ports, [["OK","OK"], ["NG","NG"]], include_blank: "--" %>
   </div>
 
   <div class='checksheet-cables'>
   持込用ケーブル
-  <select name="cables">
-  <option value= "">--</option>
-  <option value= "OK">OK</option>
-  <option value= "NG">NG</option>
-  </select>
+ <%= f.select :cables, [["OK","OK"], ["NG","NG"]], include_blank: "--" %>
   </div>
 
   <div class='checksheet-expendables'>
   消耗品
-  <select name="expendables">
-  <option value= "">--</option>
-  <option value= "OK">OK</option>
-  <option value= "補充済">補充済</option>
-  <option value= "交換済">交換済</option>
-  </select>
+  <%= f.select :expendables, [["OK","OK"], ["補充済","補充済"], ["交換済","交換済"]], include_blank: "--" %>
   </div>
 
   <div class='checksheet-details'>
@@ -116,22 +70,12 @@
 
   <div class='checksheet-staff'>
  担当者１
-  <select name="staff">
-  <option value= "">--</option>
-  <% @users.each do |user| %>
-  <option value=<%= user.nickname %>><%= user.nickname %></option>
-  <% end %>
-  </select>
+  <%= f.collection_select :staff, User.all, :nickname, :nickname, include_blank: "--" %>
   </div>
 
   <div class='checksheet-helper'>
  担当者２
-  <select name="helper">
-  <option value= "">--</option>
-  <% @users.each do |user| %>
-  <option value=<%= user.nickname %>><%= user.nickname %></option>
-  <% end %>
-  </select>
+   <%= f.collection_select :helper, User.all, :nickname, :nickname, include_blank: "--" %>
   </div>
 
   <div class='checksheet-date'>
@@ -150,11 +94,7 @@
 
  <div class='checksheet-status'>
  進捗状況
-  <select name="status">
-  <option value= "">--</option>
-  <option value= "対応中">対応中</option>
-  <option value= "完了">完了</option>
-  </select>
+   <%= f.select :status, [["対応中","対応中"], ["完了","完了"]], include_blank: "--" %>
   </div>
 
 <div class="checksheet-btn">
