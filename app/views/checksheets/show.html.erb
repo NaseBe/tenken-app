@@ -60,5 +60,11 @@ Blu-ray/DVDデッキ：<%= @checksheet.bd_dvd_player %>
 </div>
 </div>
 <%= link_to '戻る', :back %>
+<div class="comment-container">
+コメント一覧
+<%= render partial: 'comments/comment' , collection: @comments %>
 </div>
+</div>
+
+
 <%= render "shared/footer" %>
