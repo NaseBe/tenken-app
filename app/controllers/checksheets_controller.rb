@@ -17,6 +17,7 @@ class ChecksheetsController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
     @comments = @checksheet.comments.includes(:user)
   end
 
