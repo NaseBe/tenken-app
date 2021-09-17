@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_09_130016) do
+ActiveRecord::Schema.define(version: 2021_09_16_111715) do
 
   create_table "checksheets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "classroom_id", null: false
@@ -38,6 +38,16 @@ ActiveRecord::Schema.define(version: 2021_09_09_130016) do
     t.index ["user_id"], name: "index_checksheets_on_user_id"
   end
 
+  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "text", null: false
+    t.bigint "user_id", null: false
+    t.bigint "checksheet_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["checksheet_id"], name: "index_comments_on_checksheet_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
   create_table "tenkens", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.bigint "user_id", null: false
@@ -61,5 +71,7 @@ ActiveRecord::Schema.define(version: 2021_09_09_130016) do
 
   add_foreign_key "checksheets", "tenkens"
   add_foreign_key "checksheets", "users"
+  add_foreign_key "comments", "checksheets"
+  add_foreign_key "comments", "users"
   add_foreign_key "tenkens", "users"
 end

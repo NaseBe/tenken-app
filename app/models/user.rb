@@ -6,6 +6,7 @@ class User < ApplicationRecord
   
   has_many :tenkens
   has_many :checksheets
+  has_many :comments
 
   validates :nickname, presence: true
 end

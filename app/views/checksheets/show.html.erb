@@ -60,5 +60,18 @@ Blu-ray/DVDデッキ：<%= @checksheet.bd_dvd_player %>
 </div>
 </div>
 <%= link_to '戻る', :back %>
+
+<div class="create-comment">
+<%= form_with model:([@tenken, @checksheet, @comment]), local: true do |f| %>
+<%= f.text_area :text, placeholder: "コメントする" %>
+<%= f.submit "送信" %>
+<% end %>
 </div>
+<div class="comment-container">
+コメント一覧
+<%= render partial: 'comments/comment' , collection: @comments %>
+</div>
+</div>
+
+
 <%= render "shared/footer" %>

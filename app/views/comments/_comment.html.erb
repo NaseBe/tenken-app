@@ -1,0 +1,8 @@
+<div class="comment">
+<%= comment.user.nickname %>
+<%= comment.created_at.to_s(:datetime) %>
+<%= comment.text %>
+<% if comment.user_id == current_user.id %>
+<%= link_to '削除', tenken_checksheet_comment_path(comment.checksheet.tenken_id, comment.checksheet_id, comment.id), method: :delete %>
+<% end %>
+</div>

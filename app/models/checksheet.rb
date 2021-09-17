@@ -3,6 +3,7 @@ class Checksheet < ApplicationRecord
   belongs_to :classroom 
   belongs_to :tenken
   belongs_to :user
+  has_many :comments, dependent: :destroy
 
   with_options presence: true do
     validates :classroom_id, numericality: { other_than: 0, message: "can't be blank" }
