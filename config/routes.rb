@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :users, only: [:edit, :update]
   resources :tenkens, except: :new do
       resources :checksheets, except: :index do
-        resources :comments, only: :create
+        resources :comments, only: [:create, :destroy]
       end
   end
 end
