@@ -45,6 +45,7 @@ Blu-ray/DVDデッキ：<%= @checksheet.bd_dvd_player %>
 </div>
 <div class='detailed-details'>
 詳細：<%= @checksheet.details %>
+<%= image_tag @checksheet.image.variant(resize: '500x500'), class:'detailed-image' if @checksheet.image.attached? %>
 </div>
 <div class='detailed-staff'>
 担当者１：<%= @checksheet.staff %>
@@ -64,6 +65,7 @@ Blu-ray/DVDデッキ：<%= @checksheet.bd_dvd_player %>
 <div class="create-comment">
 <%= form_with model:([@tenken, @checksheet, @comment]), local: true do |f| %>
 <%= f.text_area :text, placeholder: "コメントする" %>
+<%= f.file_field :image %>
 <%= f.submit "送信" %>
 <% end %>
 </div>

@@ -52,6 +52,6 @@ class ChecksheetsController < ApplicationController
   end
 
   def checksheet_params
-    params.require(:checksheet).permit(:classroom_id, :projector, :control_panel, :mic, :pc, :bd_dvd_player, :remotes, :ohc, :screen, :ports, :cables, :expendables, :details, :staff, :helper, :date, :status).merge(tenken_id: params[:tenken_id], user_id: current_user.id)
+    params.require(:checksheet).permit(:classroom_id, :projector, :control_panel, :mic, :pc, :bd_dvd_player, :remotes, :ohc, :screen, :ports, :cables, :expendables, :details, :staff, :helper, :date, :status, :image).merge(tenken_id: params[:tenken_id], user_id: current_user.id)
   end
 end
