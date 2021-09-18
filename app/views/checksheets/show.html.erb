@@ -45,6 +45,7 @@ Blu-ray/DVDデッキ：<%= @checksheet.bd_dvd_player %>
 </div>
 <div class='detailed-details'>
 詳細：<%= @checksheet.details %>
+<%= image_tag @checksheet.image.variant(resize: '500x500'), class:'detailed-image' if @checksheet.image.attached? %>
 </div>
 <div class='detailed-staff'>
 担当者１：<%= @checksheet.staff %>
