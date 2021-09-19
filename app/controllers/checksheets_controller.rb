@@ -17,7 +17,7 @@ class ChecksheetsController < ApplicationController
 
   def show
     @comment = Comment.new
-    @comments = @checksheet.comments.includes(:user)
+    @comments = @checksheet.comments.includes(:user).order("created_at DESC")
   end
 
   def edit
