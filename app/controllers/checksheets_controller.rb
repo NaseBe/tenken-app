@@ -1,5 +1,4 @@
 class ChecksheetsController < ApplicationController
-  before_action :set_users
   before_action :set_tenken
   before_action :set_checksheet, only: [:show, :edit, :update, :destroy]
 
@@ -38,10 +37,6 @@ class ChecksheetsController < ApplicationController
   end
 
   private
-
-  def set_users
-    @users = User.all
-  end
 
   def set_tenken
     @tenken = Tenken.find(params[:tenken_id])
