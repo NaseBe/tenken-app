@@ -60,7 +60,7 @@ Blu-ray/DVDデッキ：<%= @checksheet.bd_dvd_player %>
 進捗状況：<%= @checksheet.status %>
 </div>
 </div>
-<%= link_to '戻る', :back %>
+<%= link_to '戻る', tenken_path(@checksheet.tenken_id) %>
 
 <div class="create-comment">
 <%= form_with model:([@tenken, @checksheet, @comment]), local: true do |f| %>
