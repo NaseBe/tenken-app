@@ -11,7 +11,7 @@ class TenkensController < ApplicationController
   end
 
   def show
-    @checksheets = @tenken.checksheets
+    @checksheets = @tenken.checksheets.order('classroom_id ASC')
     @classrooms = pending_classrooms(@checksheets)
   end
 
