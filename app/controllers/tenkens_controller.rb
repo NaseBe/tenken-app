@@ -6,14 +6,13 @@ class TenkensController < ApplicationController
   end
 
   def create
-    Tenken.create(tenken_params)
-    
-    redirect_to root_path
-    
+    Tenken.create(tenken_params)   
+    redirect_to root_path  
   end
 
   def show
     @checksheets = @tenken.checksheets
+    @classrooms = pending_classrooms(@checksheets)
   end
 
   def edit
@@ -41,4 +40,20 @@ class TenkensController < ApplicationController
   def set_tenken
     @tenken = Tenken.find(params[:id])
   end
+
+  def pending_classrooms(checksheets)
+    done = []
+    pending = []
+    checksheets.each do |checksheet|
+      done << checksheet[:classroom_id]
+    end
+    classrooms = Classroom.all 
+    classrooms.each do |classroom|
+      unless done.include?(classroom[:id]) || classroom[:id] == 0
+      pending << classroom
+      end
+    end
+    return pending
+  end
+
 end

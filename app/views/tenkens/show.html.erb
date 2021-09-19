@@ -24,5 +24,13 @@
 <% end %>
 </div>
 
+<div class='pending'>
+<p>未着手の教室</p>
+
+<% @classrooms.each do |classroom| %>
+<%= classroom.number %>
+<% end %>
+</div>
+
 </div>
 <%= render "shared/footer" %>
