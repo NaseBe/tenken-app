@@ -1,28 +1,46 @@
 <%= render "shared/header" %>
+
 <div class='main'>
-
-<%= form_with model: @tenken, class:'create-tenken', local: true do |f| %>
- <div class='create-tenken-form'>
-  <%= f.text_field :name, class:'create-tenken-input', placeholder: '点検名を入力してください（例：2021年度　夏期教室点検）' %>
-  </div>
-<%= f.submit '点検を作成する', class:'new-btn' %>
-<% end %>
-
-<div class='tenkens'>
-  <% @tenkens.each do |tenken| %>
-  <div class='tenken-container'>
-    <%= link_to tenken_path(tenken.id), class:'tenken-info' do %>
-      <div class=’tenken-name’>
-      <%= tenken.name %>
-      </div>
-      <div class='tenken-user'>
-      <%= tenken.user.nickname %>
+  <div class='container my-5 mx-auto'>
+    <%= form_with model: @tenken, local: true do |f| %>
+      <div class='row'>
+        <div class='col-md-8 pe-1'>
+          <%= f.text_field :name, class:'form-control', placeholder: '点検名を入力してください（例：2021年度　夏期教室点検）' %>
+        </div>
+        <div class='col-md-4 align-self-center'>
+          <%= f.submit '点検を作成する', class:'btn btn-secondary'%>
+        </div>
       </div>
     <% end %>
   </div>
-  <% end %>
+
+  <div class='container mb-5'>
+    <div class=‘row’>
+      <div class='col-md-12'>
+        <% @tenkens.all.in_groups_of(2) do |group| %>
+          <div class='row'>
+            <% group.compact.each do |tenken| %>
+            <div class='col-lg-6'>
+                <%= link_to tenken_path(tenken.id) do %>
+                <div class="card flex-row mb-3">
+                  <div class="card-img-left example-card-img-responsive"><%= image_tag "projector.jpg", class:'thumbnail' %></div>
+                  <div class="card-body">
+                    <h4 class="card-title h5 h4-sm text-dark"><%= tenken.name %></h4>
+                    <p class="card-text text-secondary">作成者： <%= tenken.user.nickname %></p>
+                  </div>
+                </div>
+                <% end %>  
+            </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+   </div>
+  </div>
+  
+  
 
 </div>
-</div>
+
 <%= render "shared/footer" %>
 

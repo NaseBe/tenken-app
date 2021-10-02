@@ -12,5 +12,31 @@
  *
  
  */
+ .main {
+  width: 100vw;
+  min-height: calc(100vh - 150px);
+}
+
+a {
+  text-decoration: none !important;
+}
+
+.thumbnail {
+  width: 200px;
+}
+
+@media (max-width: 1000px){
+  .thumbnail {
+    width: 150px;
+  }
+}
+@media (max-width: 500px){
+  .thumbnail {
+    display: none;
+  }
+}
+
+
+
  @import "bootstrap";
  
