@@ -24,16 +24,22 @@ a {
 .thumbnail {
   width: 200px;
 }
+.button-container {
+  min-height: 35vh;
+}
 
 @media (max-width: 1000px){
   .thumbnail {
     width: 150px;
   }
+  .button-container {
+    min-height: 10vh;
+  }
 }
 @media (max-width: 500px){
   .thumbnail {
     display: none;
-  }
+  } 
 }
 
 
