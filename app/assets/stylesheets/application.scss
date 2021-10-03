@@ -28,6 +28,7 @@ a {
   min-height: 35vh;
 }
 
+
 @media (max-width: 1000px){
   .thumbnail {
     width: 150px;
@@ -35,6 +36,7 @@ a {
   .button-container {
     min-height: 10vh;
   }
+  
 }
 @media (max-width: 500px){
   .thumbnail {
@@ -42,7 +44,11 @@ a {
   } 
 }
 
-
+ select {
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  width: 90%;
+}
 
  @import "bootstrap";
  
