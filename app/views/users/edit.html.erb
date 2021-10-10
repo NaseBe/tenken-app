@@ -1,23 +1,37 @@
-<%= form_with model: current_user, class:'user-registration', local: true do |f| %>
+<div class="container d-flex justify-content-center mt-5">
+  <div class=" border border-success rounded p-4 greenline">
+    <h2 class="text-success mb-5 text-center">アカウント編集</h2>
+    <%= form_with model: current_user, local: true do |f| %>
+  
+    <form>
+    <div class="row mb-3">
+    <div class='col-md-6 col-form-label'>
+     <%= f.label :nickname %><em>(12 characters maximum)</em>
+    </div> 
+    <div class="col-md-6">
+      <%= f.text_field :nickname, autofocus: true,maxlength:'12', class:'form-control' %>
+    </div>
+    </div>
 
-<div class='user-registration-form'>
-<h2>アカウントの編集</h2>
+    <div class="row mb-3">
+    <div class='col-md-6 col-form-label'>
+     <%= f.label :email %>
+    </div> 
+    <div class="col-md-6">
+       <%= f.email_field :email, class:'form-control' %>
+    </div>
+    </div>
 
-  <div class="registration-form-field">
-    <%= f.label :nickname %><em>(12 characters maximum)</em><br />
-    <%= f.text_field :nickname, autofocus: true,maxlength:'12' %>
+    <div class="container d-flex ps-0">
+    <%= f.submit "更新", class:"btn btn-success mt-3 px-5" %>
+    </div>
+    </form>
+    <% end %>
   </div>
 
-  <div class="registration-form-field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email %>
-  </div>
+</div>
 
-  <div class="actions">
-    <%= f.submit "更新", class:'registration-btn' %>
+<div class="container d-flex justify-content-center mt-4">
+  <%= link_to 'トップページ', root_path, class:'link-success fs-5' %>
+  <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:'ps-5 link-danger fs-5' %>
   </div>
-  <div>
-<% end %>
-
-<%= link_to '戻る', :back %>
-<%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>

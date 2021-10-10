@@ -10,10 +10,54 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
+ 
  */
+ .main {
+  width: 100vw;
+  min-height: calc(100vh - 150px);
+}
 
- * {
-   box-sizing: border-box;
- }
+a {
+  text-decoration: none !important;
+}
+
+.thumbnail {
+  width: 200px;
+}
+.button-container {
+  min-height: 35vh;
+}
+.greenline {
+  width: 50vw;
+}
+
+@media (max-width: 1000px){
+  .thumbnail {
+    width: 150px;
+  }
+  .button-container {
+    min-height: 10vh;
+  }
+  .greenline {
+    width: 100%;
+  }
+  
+}
+@media (max-width: 500px){
+  .thumbnail {
+    display: none;
+  } 
+}
+
+ select {
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  width: 90%;
+}
+
+.field_with_errors {
+  display: contents;
+}
+
+ @import "bootstrap";
+ 

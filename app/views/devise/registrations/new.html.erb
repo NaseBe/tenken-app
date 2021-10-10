@@ -1,37 +1,64 @@
-<%= form_with model: @user, url: user_registration_path, class:'user-registration', local: true do |f| %>
+<div class="container d-flex justify-content-center mt-5">
+  <div class=" border border-success rounded p-4 greenline">
+    <h2 class="text-success mb-5 text-center">ユーザー登録</h2>
+    <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
-<div class='user-registration-form'>
-<h2>ユーザー登録</h2>
+    <form>
+    <div class="row mb-3">
+    <div class='col-md-6 col-form-label'>
+     <%= f.label :nickname %><em>(12 characters maximum)</em>
+    </div> 
+    <div class="col-md-6">
+      <%= f.text_field :nickname, autofocus: true,maxlength:'12', class:'form-control' %>
+    </div>
+    </div>
 
-  <%= render "devise/shared/error_messages", resource: resource %>
-  
-  <div class="registration-form-field">
-    <%= f.label :nickname %><em>(12 characters maximum)</em><br />
-    <%= f.text_field :nickname, autofocus: true,maxlength:'12' %>
-  </div>
+    <div class="row mb-3">
+    <div class='col-md-6 col-form-label'>
+     <%= f.label :email %>
+    </div> 
+    <div class="col-md-6">
+       <%= f.email_field :email, class:'form-control' %>
+    </div>
+    </div>
 
-  <div class="registration-form-field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email %>
-  </div>
-
-  <div class="registration-form-field">
-    <%= f.label :password %>
+    <div class="row mb-3">
+    <div class='col-md-6 col-form-label'>
+     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password %>
+    <% end %>
+    </div> 
+    <div class="col-md-6">
+        <%= f.password_field :password, class:'form-control' %>
+    </div>
+    </div>
+
+    <div class="row mb-3">
+    <div class='col-md-6 col-form-label'>
+    <%= f.label :password_confirmation %>
+    </div>
+    <div class="col-md-6">
+    <%= f.password_field :password_confirmation, class:'form-control' %>
+    </div>
+    </div>
+
+    <div class="container d-flex ps-0">
+    <%= f.submit "登録", class:"btn btn-success mt-3 px-5" %>
+    </div>
+    </form>
+    <% end %>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation %>
+</div>
+
+<div class="container d-flex justify-content-center mt-4">
+  <%= link_to 'Log in', new_user_session_path, class:'link-success fs-5' %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "登録", class:'registration-btn' %>
-  </div>
-  <div>
-<% end %>
 
-<%= render "devise/shared/links" %>
+
+
+
+

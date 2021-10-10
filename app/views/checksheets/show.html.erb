@@ -1,79 +1,120 @@
-<%= render "shared/header" %>
-<div class='main'>
+<div class='container d-flex flex-column my-5'>
 
-<div class= 'checksheet-edit-delete'>
-<%= link_to 'このチェックシートを編集する', edit_tenken_checksheet_path(@tenken.id, @checksheet.id), class:'checksheet-edit-btn' %>
-<%= link_to 'このチェックシートを削除する', tenken_checksheet_path(@tenken.id, @checksheet.id), method: :delete, class:'checksheet-delete-btn' %>
+  <div class='row d-flex mb-md-5 mb-3'>
+    <p class='col-md-4 col-6'><%= link_to "教室一覧へ戻る", tenken_path(@tenken.id), class:"link-primary fs-5" %></p>
+    <div class='col-md-4 col-6'> </div>
+  </div>
+
+  <table class="table mb-md-5 mb-3">
+  <thead>
+    <tr>
+      <th scope="col">教室番号</th>
+      <th scope="col">
+      <%= @checksheet.classroom.number %>
+      <%= link_to edit_tenken_checksheet_path(@tenken.id, @checksheet.id) do %>
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-pencil ms-3" viewBox="0 0 16 16">
+        <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+        </svg>
+      <% end %>
+      <%= link_to tenken_checksheet_path(@tenken.id, @checksheet.id), method: :delete do %>
+      <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-trash ms-3" viewBox="0 0 16 16">
+      <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+      <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+      </svg>
+     <% end %>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+     <tr>
+      <td>プロジェクター</td>
+      <td><%= @checksheet.projector %></td>
+    </tr>
+    <tr>
+      <td>コントロールパネル</td>
+      <td><%= @checksheet.control_panel %></td>
+    </tr>
+    <tr>
+      <td>マイク</td>
+      <td><%= @checksheet.mic %></td>
+    </tr>
+    <tr>
+      <td>パソコン</td>
+      <td><%= @checksheet.pc %></td>
+    </tr>
+    <tr>
+      <td>Blu-ray/DVDデッキ</td>
+      <td><%= @checksheet.bd_dvd_player %></td>
+    </tr>
+    <tr>
+      <td>リモコン</td>
+      <td><%= @checksheet.remotes %></td>
+    </tr>
+    <tr>
+      <td>書画カメラ</td>
+      <td><%= @checksheet.ohc %></td>
+    </tr>
+    <tr>
+      <td>スクリーン</td>
+      <td><%= @checksheet.screen %></td>
+    </tr>
+    <tr>
+      <td>持込用端子</td>
+      <td><%= @checksheet.ports %></td>
+    </tr>
+    <tr>
+      <td>持込用ケーブル</td>
+      <td><%= @checksheet.cables %></td>
+    </tr>
+    <tr>
+      <td>消耗品</td>
+      <td><%= @checksheet.expendables %></td>
+    </tr>
+    <tr>
+      <td>詳細</td>
+      <td>
+      <div>
+      <%= @checksheet.details %>
+      </div>
+      <%= image_tag @checksheet.image.variant(resize: '500x500'), class:'img-fluid' if @checksheet.image.attached? %>
+      </td>
+    </tr>
+     <tr>
+      <td>担当者１</td>
+      <td><%= @checksheet.staff %></td>
+    </tr>
+     <tr>
+      <td>担当者２</td>
+      <td><%= @checksheet.helper %></td>
+    </tr>
+    <tr>
+      <td>実施日</td>
+      <td><%= @checksheet.date %></td>
+    </tr>
+    <tr>
+      <td>進捗状況</td>
+      <td><%= @checksheet.status %></td>
+    </tr>
+
+    </tbody>
+  </table>
+
+
+  <div class="container">
+    <div>
+        <%= form_with model:([@tenken, @checksheet, @comment]), local: true do |f| %>
+        <%= f.text_area :text, class:"form-control", placeholder: "コメントする", rows: "3" %>
+        <%= f.file_field :image %>
+        <%= f.submit "送信", class:"btn btn-secondary mt-3 px-5" %>
+       <% end %>
+    </div>
+
+<hr/>
+
+  <div class="mt-md-5 mt-3">
+    <h3 class="p-3 text-center">コメント一覧</h3>
+    <%= render partial: 'comments/comment' , collection: @comments %>
+  </div>
 </div>
 
-<div class='details'>
-<div class='detailed-classroom'>
-教室番号：<%= @checksheet.classroom.number %>
-</div>
-<div class='detailed-projector'>
-プロジェクター：<%= @checksheet.projector %>
-</div>
-<div class='detailed-conpane'>
-コントロールパネル：<%= @checksheet.control_panel %>
-</div>
-<div class='detailed-mic'>
-マイク：<%= @checksheet.mic %>
-</div>
-<div class='detailed-pc'>
-パソコン：<%= @checksheet.pc %>
-</div>
-<div class='detailed-player'>
-Blu-ray/DVDデッキ：<%= @checksheet.bd_dvd_player %>
-</div>
-<div class='detailed-remotes'>
-リモコン：<%= @checksheet.remotes %>
-</div>
-<div class='detailed-ohc'>
-書画カメラ：<%= @checksheet.ohc %>
-</div>
-<div class='detailed-screen'>
-スクリーン：<%= @checksheet.screen %>
-</div>
-<div class='detailed-ports'>
-持込用端子：<%= @checksheet.ports %>
-</div>
-<div class='detailed-cables'>
-持込用ケーブル：<%= @checksheet.cables %>
-</div>
-<div class='detailed-expendables'>
-消耗品：<%= @checksheet.expendables %>
-</div>
-<div class='detailed-details'>
-詳細：<%= @checksheet.details %>
-<%= image_tag @checksheet.image.variant(resize: '500x500'), class:'detailed-image' if @checksheet.image.attached? %>
-</div>
-<div class='detailed-staff'>
-担当者１：<%= @checksheet.staff %>
-</div>
-<div class='detailed-helper'>
-担当者２：<%= @checksheet.helper %>
-</div>
-<div class='detailed-date'>
-実施日：<%= @checksheet.date %>
-</div>
-<div class='detailed-status'>
-進捗状況：<%= @checksheet.status %>
-</div>
-</div>
-<%= link_to '戻る', tenken_path(@checksheet.tenken_id) %>
 
-<div class="create-comment">
-<%= form_with model:([@tenken, @checksheet, @comment]), local: true do |f| %>
-<%= f.text_area :text, placeholder: "コメントする" %>
-<%= f.file_field :image %>
-<%= f.submit "送信" %>
-<% end %>
-</div>
-<div class="comment-container">
-コメント一覧
-<%= render partial: 'comments/comment' , collection: @comments %>
-</div>
-</div>
-
-
-<%= render "shared/footer" %>

@@ -1,27 +1,46 @@
-<h2>サインイン</h2>
+<div class="container d-flex justify-content-center mt-5">
+  <div class=" border border-success rounded p-4 greenline">
+    <h2 class="text-success mb-5 text-center">サインイン</h2>
+    <%= form_with model:@user, url: user_session_path, local: true do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
-<%= form_with model:@user, url: user_session_path, class:'login-form', local:true do |f| %>
-  <div class="login-field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+    <form>
 
-  <div class="login-field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password %>
-  </div>
+    <div class="row mb-3">
+    <div class='col-md-6 col-form-label'>
+     <%= f.label :email %>
+    </div> 
+    <div class="col-md-6">
+       <%= f.email_field :email, autofocus: true, class:'form-control' %>
+    </div>
+    </div>
 
-  <% if devise_mapping.rememberable? %>
+    <div class="row mb-3">
+    <div class='col-md-6 col-form-label'>
+     <%= f.label :password %>
+    </div> 
+    <div class="col-md-6">
+        <%= f.password_field :password, class:'form-control' %>
+    </div>
+    </div>
+
+    <% if devise_mapping.rememberable? %>
     <div class="login-field">
       <%= f.check_box :remember_me %>
       <%= f.label :remember_me %>
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= f.submit "Log in", class:'login-btn' %>
+    <div class="container d-flex ps-0">
+    <%= f.submit "Log in", class:"btn btn-success mt-3 px-5" %>
+    </div>
+    </form>
+    <% end %>
   </div>
-<% end %>
 
+</div>
 
-<%= render "devise/shared/links" %>
+  <div class="container d-flex justify-content-center mt-4">
+  <%= link_to 'ユーザー新規登録', new_user_registration_path, class:'link-success fs-5' %>
+  </div>
+
