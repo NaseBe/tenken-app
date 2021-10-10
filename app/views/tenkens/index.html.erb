@@ -23,7 +23,7 @@
             <div class='col-lg-6'>
                 <%= link_to tenken_path(tenken.id) do %>
                 <div class="card flex-row mb-3">
-                  <div class="card-img-left example-card-img-responsive"><%= image_tag "projector.jpg", class:'thumbnail' %></div>
+                  <div class="card-img-left"><%= image_tag "projector.jpg", class:'thumbnail' %></div>
                   <div class="card-body">
                     <h4 class="card-title h5 h4-sm text-dark"><%= tenken.name %></h4>
                     <p class="card-text text-secondary">作成者： <%= tenken.user.nickname %></p>
