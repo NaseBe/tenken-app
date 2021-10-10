@@ -1,6 +1,8 @@
-<div class="comment">
-<%= comment.user.nickname %>
+<div class="bg-white mt-3 p-3">
+<span class="text-secondary">
 <%= comment.created_at.to_s(:datetime) %>
+by <%= comment.user.nickname %>:
+</span>
 <%= comment.text %>
 <%= image_tag comment.image.variant(resize: '500x500'), class:'comment-image' if comment.image.attached? %>
 <% if comment.user_id == current_user.id %>
