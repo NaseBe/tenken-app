@@ -24,8 +24,8 @@
     <h3 class="text-center mb-md-5">対応中・対応完了の教室</h3>
     <div class='container d-flex flex-wrap justify-content-center'>
     <% @checksheets.each do |checksheet| %>
-      <button type="button" class='btn bg-success me-2 mb-2' style= 'width: 77px;'>
-      <%= link_to checksheet.classroom.number, tenken_checksheet_path(checksheet.tenken_id, checksheet.id), class:'text-light' %>
+    <%= link_to tenken_checksheet_path(checksheet.tenken_id, checksheet.id), class:'btn bg-success me-2 mb-2 text-light', style: 'width: 77px;' do %>
+    <%= checksheet.classroom.number %>
         <% if checksheet.status == "完了" %>
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle text-light" viewBox="0 0 16 16">
         <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
@@ -38,7 +38,7 @@
        <path d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995z"/>
       </svg>
         <% end %>
-      </button>
+    <% end %>
     <% end %>
     </div>
   </div>
