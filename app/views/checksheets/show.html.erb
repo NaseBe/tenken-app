@@ -100,7 +100,7 @@
   </table>
 
 
-  <div class="container d-flex flex-column">
+  <div class="container">
     <div>
         <%= form_with model:([@tenken, @checksheet, @comment]), local: true do |f| %>
         <%= f.text_area :text, class:"form-control", placeholder: "コメントする", rows: "3" %>
@@ -112,7 +112,7 @@
 <hr/>
 
   <div class="mt-md-5 mt-3">
-    <h3 class="p-3">コメント一覧</h3>
+    <h3 class="p-3 text-center">コメント一覧</h3>
     <%= render partial: 'comments/comment' , collection: @comments %>
   </div>
 </div>
