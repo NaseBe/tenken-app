@@ -1,14 +1,14 @@
 <%= render "shared/header" %>
 
 <div class='main'>
-  <div class='container my-5 mx-auto'>
+  <div class='container mt-5 mb-4 mx-auto'>
     <%= form_with model: @tenken, local: true do |f| %>
       <div class='row'>
         <div class='col-md-8 pe-1'>
           <%= f.text_field :name, class:'form-control', placeholder: '点検名を入力してください（例：2021年度　夏期教室点検）' %>
         </div>
         <div class='col-md-4 align-self-center'>
-          <%= f.submit '点検を作成する', class:'btn btn-secondary'%>
+          <%= f.submit '点検を作成する', class:'btn btn-primary'%>
         </div>
       </div>
     <% end %>
