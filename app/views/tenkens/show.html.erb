@@ -16,7 +16,9 @@
       </svg>
      <% end %>
     </div>
-    <button type="button" class="btn bg-secondary btn-lg  ms-md-5 mt-md-0 mt-sm-3"><%= link_to "点検を開始", new_tenken_checksheet_path(@tenken.id), class:'text-light' %></button>  
+    <%= link_to new_tenken_checksheet_path(@tenken.id) do %> 
+    <button class='text-light btn bg-primary btn-lg ms-md-5 mt-md-0 mt-sm-3'>点検を開始</button>
+    <% end %>
   </div>
 
 <hr>
@@ -43,8 +45,8 @@
     </div>
   </div>
 
-  <div class='container d-flex align-items-center mb-5 p-3 shadow-sm'>
-   <p class="fs-6">未着手の教室：
+  <div class='container d-flex mb-5 p-3 shadow-sm'>
+   <p class="fs-6 mb-0">未着手の教室：
       <% @classrooms.each do |classroom| %>
       <%= classroom.number %>
       <% end %>
