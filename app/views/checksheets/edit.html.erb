@@ -1,107 +1,145 @@
-<%= render "shared/header" %>
-<div class='main'>
-<h2 class="checksheet-start">点検結果を更新</h2>
+<div class="container d-flex flex-column my-5">
 
-<%= form_with model:([@tenken,@checksheet]), class:'create-checksheet', local: true do |f| %>
- <div class='checksheet-classroom'>
- 教室番号
-  <%= f.collection_select(:classroom_id, Classroom.all, :id, :number, {}, {class:"select-item"}) %>
+<div class='row d-flex mb-md-5 mb-3'>
+<p class='col-md-4 col-6'>
+<%= link_to "教室一覧へ戻る", tenken_path(@tenken.id), class:"link-primary fs-5" %></p>
+<div class='col-md-4 col-6'> </div>
+</div>
+
+<%= form_with model:([@tenken,@checksheet]), local: true do |f| %>
+ <div class='row d-flex'>
+ <p class='col-md-4 col-6'>教室番号【必須】</p>
+ <div class='col-md-4 col-6'>
+  <%= f.collection_select(:classroom_id, Classroom.all, :id, :number, {}, {class:"form-select"}) %>
+  </div>
   </div>
   
-  <div class='checksheet-projector'>
-  プロジェクター
-  <%= f.select :projector, [["OK","OK"], ["NG","NG"]], include_blank: "--" %>
+  <div class='row d-flex'>
+  <p class='col-md-4 col-6'>プロジェクター</p>
+  <div class='col-md-4 col-6'>
+  <%= f.select :projector, {"OK":"OK", "NG":"NG"}, {include_blank: "--"}, {class:'form-select'} %>
+  </div>
   </div>
 
-  <div class='checksheet-conpane'>
-  コンパネ
-   <%= f.select :control_panel, [["OK","OK"], ["NG","NG"]], include_blank: "--" %>
+  <div class='row d-flex'>
+   <p class='col-md-4 col-6'>コンパネ</p>
+  <div class='col-md-4 col-6'>
+   <%= f.select :control_panel, {"OK":"OK", "NG":"NG"}, {include_blank: "--"}, {class:'form-select'} %>
+  </div>
   </div>
 
-  <div class='checksheet-mic'>
-  マイク
-  <%= f.select :mic, [["OK","OK"], ["NG","NG"]], include_blank: "--" %>
+  <div class='row d-flex'>
+  <p class='col-md-4 col-6'>マイク</p>
+  <div class='col-md-4 col-6'>
+  <%= f.select :mic, {"OK":"OK", "NG":"NG"}, {include_blank: "--"}, {class:'form-select'} %>
+  </div>
   </div>
 
-  <div class='checksheet-pc'>
-  パソコン
-  <%= f.select :pc, [["OK","OK"], ["NG","NG"]], include_blank: "--" %>
+  <div class='row d-flex'>
+  <p class='col-md-4 col-6'>パソコン</p>
+  <div class='col-md-4 col-6'>
+  <%= f.select :pc, {"OK":"OK", "NG":"NG"}, {include_blank: "--"}, {class:'form-select'} %>
+  </div>
   </div>
 
-  <div class='checksheet-player'>
-  Blu-ray/DVDデッキ
-  <%= f.select :bd_dvd_player, [["OK","OK"], ["NG","NG"]], include_blank: "--" %>
+  <div class='row d-flex'>
+  <p class='col-md-4 col-6'>Blu-ray/DVDデッキ</p>
+  <div class='col-md-4 col-6'>
+  <%= f.select :bd_dvd_player, {"OK":"OK", "NG":"NG"}, {include_blank: "--"}, {class:'form-select'} %>
+  </div>
   </div>
 
-  <div class='checksheet-remotes'>
-  リモコン
-  <%= f.select :remotes, [["OK","OK"], ["NG","NG"], ["電池交換済","電池交換済"]], include_blank: "--" %>
+  <div class='row d-flex'>
+  <p class='col-md-4 col-6'>リモコン</p>
+  <div class='col-md-4 col-6'>
+  <%= f.select :remotes, {"OK":"OK", "NG":"NG", "電池交換済":"電池交換済"}, {include_blank: "--"}, {class:'form-select'} %>
+  </div>
+   </div>
+
+  <div class='row d-flex'>
+  <p class='col-md-4 col-6'>書画カメラ</p>
+  <div class='col-md-4 col-6'>
+   <%= f.select :ohc, {"OK":"OK", "NG":"NG"}, {include_blank: "--"}, {class:'form-select'} %>
+  </div>
   </div>
 
-  <div class='checksheet-ohc'>
-  書画カメラ
-   <%= f.select :ohc, [["OK","OK"], ["NG","NG"]], include_blank: "--" %>
+  <div class='row d-flex'>
+  <p class='col-md-4 col-6'>スクリーン</p>
+ <div class='col-md-4 col-6'>
+  <%= f.select :screen, {"OK":"OK", "NG":"NG"}, {include_blank: "--"}, {class:'form-select'} %>
+  </div>
   </div>
 
-  <div class='checksheet-screen'>
-  スクリーン
-  <%= f.select :screen, [["OK","OK"], ["NG","NG"]], include_blank: "--" %>
+  <div class='row d-flex'>
+  <p class='col-md-4 col-6'>持込用端子</p>
+  <div class='col-md-4 col-6'>
+   <%= f.select :ports, {"OK":"OK", "NG":"NG"}, {include_blank: "--"}, {class:'form-select'} %>
+  </div>
   </div>
 
-  <div class='checksheet-ports'>
-  持込用端子
-   <%= f.select :ports, [["OK","OK"], ["NG","NG"]], include_blank: "--" %>
+  <div class='row d-flex'>
+  <p class='col-md-4 col-6'>持込用ケーブル</p>
+  <div class='col-md-4 col-6'>
+ <%= f.select :cables, {"OK":"OK", "NG":"NG"}, {include_blank: "--"}, {class:'form-select'} %>
+  </div>
   </div>
 
-  <div class='checksheet-cables'>
-  持込用ケーブル
- <%= f.select :cables, [["OK","OK"], ["NG","NG"]], include_blank: "--" %>
+  <div class='row d-flex'>
+  <p class='col-md-4 col-6'>消耗品</p>
+ <div class='col-md-4 col-6'>
+  <%= f.select :expendables, {"OK":"OK", "補充済":"補充済", "交換済":"交換済"}, {include_blank: "--"}, {class:'form-select'} %>
+  </div>
   </div>
 
-  <div class='checksheet-expendables'>
-  消耗品
-  <%= f.select :expendables, [["OK","OK"], ["補充済","補充済"], ["交換済","交換済"]], include_blank: "--" %>
-  </div>
-
-  <div class='checksheet-details'>
-  NGを選択した場合、詳細を入力してください
-  <%= f.text_area :details, class:"details-input" %>
+  <div class='row d-flex my-3'>
+  <p class='col-md-4 col-6'>詳細、コメント等</p>
+  <div class='col-md-4 col-6'>
+  <%= f.text_area :details, class:"form-control", rows: "3"%>
   <%= f.file_field :image %>
   </div>
+   </div>
 
-  <div class='checksheet-staff'>
- 担当者１
-  <%= f.collection_select :staff, User.all, :nickname, :nickname, include_blank: "--" %>
+  <div class='row d-flex'>
+  <p class='col-md-4 col-6'>担当者１【必須】</p>
+ <div class='col-md-4 col-6'>
+  <%= f.collection_select(:staff, User.all, :nickname, :nickname, {include_blank: "--"}, {class:'form-select'}) %>
+  </div>
+   </div>
+
+  <div class='row d-flex'>
+  <p class='col-md-4 col-6'>担当者２</p>
+  <div class='col-md-4 col-6'>
+  <%= f.collection_select(:helper, User.all, :nickname, :nickname, {include_blank: "--"}, {class:'form-select'}) %>
+  </div>
   </div>
 
-  <div class='checksheet-helper'>
- 担当者２
-   <%= f.collection_select :helper, User.all, :nickname, :nickname, include_blank: "--" %>
-  </div>
-
-  <div class='checksheet-date'>
-  実施日
+  <div class='row d-flex'>
+   <p class='col-md-4 col-6'>実施日【必須】</p>
+   <div class='col-md-4 col-6 d-flex'>
   <%= raw sprintf(
     f.date_select(
       :date,
-      class:'select-date',
+      class:'date-select',
       use_month_numbers: true,
       prompt: '--',
       start_year: 2015,
       end_year: (Time.now.year),
       date_separator: '%s'),
-      "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
+      "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>"%>
+  </div>
   </div>
 
- <div class='checksheet-status'>
- 進捗状況
-   <%= f.select :status, [["対応中","対応中"], ["完了","完了"]], include_blank: "--" %>
+  <div class='row d-flex'>
+   <p class='col-md-4 col-6'>進捗状況【必須】</p>
+  <div class='col-md-4 col-6'>
+   <%= f.select :status, {"対応中":"対応中", "完了":"完了"}, {include_blank: "--"}, {class:'form-select'} %>
   </div>
+   </div>
 
-<div class="checksheet-btn">
-<%= f.submit "更新" %>
+<div class="container d-flex ps-0">
+<%= f.submit "送信", class:"btn btn-primary mt-3 px-5" %>
 </div>
   <% end %>
+ 
 
 </div>
-<%= render "shared/footer" %>
