@@ -1,13 +1,12 @@
 <div class='container d-flex flex-column my-5'>
 
-<div class='row d-flex mb-md-5 mb-3'>
-<p class='col-md-4 col-6'>
-<%= link_to "教室一覧へ戻る", tenken_path(@tenken.id), class:"link-primary fs-5" %></p>
-<div class='col-md-4 col-6'> </div>
-</div>
+  <div class='row d-flex mb-md-5 mb-3'>
+    <p class='col-md-4 col-6'><%= link_to "教室一覧へ戻る", tenken_path(@tenken.id), class:"link-primary fs-5" %></p>
+    <div class='col-md-4 col-6'> </div>
+  </div>
 
-<table class="table mb-md-5 mb-3">
- <thead>
+  <table class="table mb-md-5 mb-3">
+  <thead>
     <tr>
       <th scope="col">教室番号</th>
       <th scope="col">
@@ -97,26 +96,25 @@
       <td><%= @checksheet.status %></td>
     </tr>
 
-  </tbody>
-</table>
+    </tbody>
+  </table>
 
 
-<div class="container d-flex flex-column">
-<div>
-<%= form_with model:([@tenken, @checksheet, @comment]), local: true do |f| %>
- <%= f.text_area :text, class:"form-control", placeholder: "コメントする", rows: "3" %>
-  <%= f.file_field :image %>
-<%= f.submit "送信", class:"btn btn-primary mt-3 px-5" %>
-<% end %>
-</div>
+  <div class="container d-flex flex-column">
+    <div>
+        <%= form_with model:([@tenken, @checksheet, @comment]), local: true do |f| %>
+        <%= f.text_area :text, class:"form-control", placeholder: "コメントする", rows: "3" %>
+        <%= f.file_field :image %>
+        <%= f.submit "送信", class:"btn btn-primary mt-3 px-5" %>
+       <% end %>
+    </div>
+
 <hr/>
 
-<div class="mt-md-5 mt-3">
-<h3 class="p-3">コメント一覧</h3>
-<%= render partial: 'comments/comment' , collection: @comments %>
-</div>
-
-</div>
+  <div class="mt-md-5 mt-3">
+    <h3 class="p-3">コメント一覧</h3>
+    <%= render partial: 'comments/comment' , collection: @comments %>
+  </div>
 </div>
 
 
