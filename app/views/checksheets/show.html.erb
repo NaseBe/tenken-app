@@ -73,8 +73,12 @@
     </tr>
     <tr>
       <td>詳細</td>
-      <td><%= @checksheet.details %>
-<%= image_tag @checksheet.image.variant(resize: '500x500'), class:'w-100' if @checksheet.image.attached? %></td>
+      <td>
+      <div>
+      <%= @checksheet.details %>
+      </div>
+      <%= image_tag @checksheet.image.variant(resize: '500x500'), class:'img-fluid' if @checksheet.image.attached? %>
+      </td>
     </tr>
      <tr>
       <td>担当者１</td>
