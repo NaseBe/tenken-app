@@ -1,121 +1,121 @@
 <div class="container d-flex flex-column my-5">
 
-<div class='row d-flex mb-md-5 mb-3'>
-<p class='col-md-4 col-6'>
+<div class='row d-flex mb-md-3 mb-2'>
+<p class='col-md-4'>
 <%= link_to "教室一覧へ戻る", tenken_path(@tenken.id), class:"link-primary fs-5" %></p>
-<div class='col-md-4 col-6'> </div>
+<div class='col-md-4'> </div>
 </div>
 
 <%= form_with model:([@tenken,@checksheet]), local: true do |f| %>
  <div class='row d-flex'>
- <p class='col-md-4 col-6'>教室番号【必須】</p>
- <div class='col-md-4 col-6'>
+ <p class='col-md-4 mb-md-2 mb-0 mt-md-0 mt-2'>教室番号【必須】</p>
+ <div class='col-md-4'>
   <%= f.collection_select(:classroom_id, Classroom.all, :id, :number, {}, {class:"form-select"}) %>
   </div>
   </div>
   
   <div class='row d-flex'>
-  <p class='col-md-4 col-6'>プロジェクター</p>
-  <div class='col-md-4 col-6'>
+  <p class='col-md-4 mb-md-2 mb-0 mt-md-0 mt-2'>プロジェクター</p>
+  <div class='col-md-4'>
   <%= f.select :projector, {"OK":"OK", "NG":"NG"}, {include_blank: "--"}, {class:'form-select'} %>
   </div>
   </div>
 
   <div class='row d-flex'>
-   <p class='col-md-4 col-6'>コンパネ</p>
-  <div class='col-md-4 col-6'>
+   <p class='col-md-4 mb-md-2 mb-0 mt-md-0 mt-2'>コンパネ</p>
+  <div class='col-md-4'>
    <%= f.select :control_panel, {"OK":"OK", "NG":"NG"}, {include_blank: "--"}, {class:'form-select'} %>
   </div>
   </div>
 
   <div class='row d-flex'>
-  <p class='col-md-4 col-6'>マイク</p>
-  <div class='col-md-4 col-6'>
+  <p class='col-md-4 mb-md-2 mb-0 mt-md-0 mt-2'>マイク</p>
+  <div class='col-md-4'>
   <%= f.select :mic, {"OK":"OK", "NG":"NG"}, {include_blank: "--"}, {class:'form-select'} %>
   </div>
   </div>
 
   <div class='row d-flex'>
-  <p class='col-md-4 col-6'>パソコン</p>
-  <div class='col-md-4 col-6'>
+  <p class='col-md-4 mb-md-2 mb-0 mt-md-0 mt-2'>パソコン</p>
+  <div class='col-md-4'>
   <%= f.select :pc, {"OK":"OK", "NG":"NG"}, {include_blank: "--"}, {class:'form-select'} %>
   </div>
   </div>
 
   <div class='row d-flex'>
-  <p class='col-md-4 col-6'>Blu-ray/DVDデッキ</p>
-  <div class='col-md-4 col-6'>
+  <p class='col-md-4 mb-md-2 mb-0 mt-md-0 mt-2'>Blu-ray/DVDデッキ</p>
+  <div class='col-md-4'>
   <%= f.select :bd_dvd_player, {"OK":"OK", "NG":"NG"}, {include_blank: "--"}, {class:'form-select'} %>
   </div>
   </div>
 
   <div class='row d-flex'>
-  <p class='col-md-4 col-6'>リモコン</p>
-  <div class='col-md-4 col-6'>
+  <p class='col-md-4 mb-md-2 mb-0 mt-md-0 mt-2'>リモコン</p>
+  <div class='col-md-4'>
   <%= f.select :remotes, {"OK":"OK", "NG":"NG", "電池交換済":"電池交換済"}, {include_blank: "--"}, {class:'form-select'} %>
   </div>
    </div>
 
   <div class='row d-flex'>
-  <p class='col-md-4 col-6'>書画カメラ</p>
-  <div class='col-md-4 col-6'>
+  <p class='col-md-4 mb-md-2 mb-0 mt-md-0 mt-2'>書画カメラ</p>
+  <div class='col-md-4'>
    <%= f.select :ohc, {"OK":"OK", "NG":"NG"}, {include_blank: "--"}, {class:'form-select'} %>
   </div>
   </div>
 
   <div class='row d-flex'>
-  <p class='col-md-4 col-6'>スクリーン</p>
- <div class='col-md-4 col-6'>
+  <p class='col-md-4 mb-md-2 mb-0 mt-md-0 mt-2'>スクリーン</p>
+ <div class='col-md-4'>
   <%= f.select :screen, {"OK":"OK", "NG":"NG"}, {include_blank: "--"}, {class:'form-select'} %>
   </div>
   </div>
 
   <div class='row d-flex'>
-  <p class='col-md-4 col-6'>持込用端子</p>
-  <div class='col-md-4 col-6'>
+  <p class='col-md-4 mb-md-2 mb-0 mt-md-0 mt-2'>持込用端子</p>
+  <div class='col-md-4'>
    <%= f.select :ports, {"OK":"OK", "NG":"NG"}, {include_blank: "--"}, {class:'form-select'} %>
   </div>
   </div>
 
   <div class='row d-flex'>
-  <p class='col-md-4 col-6'>持込用ケーブル</p>
-  <div class='col-md-4 col-6'>
+  <p class='col-md-4 mb-md-2 mb-0 mt-md-0 mt-2'>持込用ケーブル</p>
+  <div class='col-md-4'>
  <%= f.select :cables, {"OK":"OK", "NG":"NG"}, {include_blank: "--"}, {class:'form-select'} %>
   </div>
   </div>
 
   <div class='row d-flex'>
-  <p class='col-md-4 col-6'>消耗品</p>
- <div class='col-md-4 col-6'>
+  <p class='col-md-4 mb-md-2 mb-0 mt-md-0 mt-2'>消耗品</p>
+ <div class='col-md-4'>
   <%= f.select :expendables, {"OK":"OK", "補充済":"補充済", "交換済":"交換済"}, {include_blank: "--"}, {class:'form-select'} %>
   </div>
   </div>
 
-  <div class='row d-flex my-3'>
-  <p class='col-md-4 col-6'>詳細、コメント等</p>
-  <div class='col-md-4 col-6'>
+  <div class='row d-flex'>
+  <p class='col-md-4 mb-md-2 mb-0 mt-md-0 mt-2'>詳細、コメント等</p>
+  <div class='col-md-4'>
   <%= f.text_area :details, class:"form-control", rows: "3"%>
   <%= f.file_field :image %>
   </div>
    </div>
 
   <div class='row d-flex'>
-  <p class='col-md-4 col-6'>担当者１【必須】</p>
- <div class='col-md-4 col-6'>
+  <p class='col-md-4 mb-md-2 mb-0 mt-md-0 mt-2'>担当者１【必須】</p>
+ <div class='col-md-4'>
   <%= f.collection_select(:staff, User.all, :nickname, :nickname, {include_blank: "--"}, {class:'form-select'}) %>
   </div>
    </div>
 
   <div class='row d-flex'>
-  <p class='col-md-4 col-6'>担当者２</p>
-  <div class='col-md-4 col-6'>
+  <p class='col-md-4 mb-md-2 mb-0 mt-md-0 mt-2'>担当者２</p>
+  <div class='col-md-4'>
   <%= f.collection_select(:helper, User.all, :nickname, :nickname, {include_blank: "--"}, {class:'form-select'}) %>
   </div>
   </div>
 
   <div class='row d-flex'>
-   <p class='col-md-4 col-6'>実施日【必須】</p>
-   <div class='col-md-4 col-6 d-flex'>
+   <p class='col-md-4 mb-md-2 mb-0 mt-md-0 mt-2'>実施日【必須】</p>
+   <div class='col-md-4 d-flex'>
   <%= raw sprintf(
     f.date_select(
       :date,
@@ -130,8 +130,8 @@
   </div>
 
   <div class='row d-flex'>
-   <p class='col-md-4 col-6'>進捗状況【必須】</p>
-  <div class='col-md-4 col-6'>
+   <p class='col-md-4 mb-md-2 mb-0 mt-md-0 mt-2'>進捗状況【必須】</p>
+  <div class='col-md-4'>
    <%= f.select :status, {"対応中":"対応中", "完了":"完了"}, {include_blank: "--"}, {class:'form-select'} %>
   </div>
    </div>
