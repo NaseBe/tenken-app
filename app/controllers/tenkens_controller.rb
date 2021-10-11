@@ -6,8 +6,8 @@ class TenkensController < ApplicationController
   end
 
   def create
-    Tenken.create(tenken_params)   
-    redirect_to root_path  
+    Tenken.create(tenken_params)
+    redirect_to root_path
   end
 
   def show
@@ -47,13 +47,10 @@ class TenkensController < ApplicationController
     checksheets.each do |checksheet|
       done << checksheet[:classroom_id]
     end
-    classrooms = Classroom.all 
+    classrooms = Classroom.all
     classrooms.each do |classroom|
-      unless done.include?(classroom[:id]) || classroom[:id] == 0
-      pending << classroom
-      end
+      pending << classroom unless done.include?(classroom[:id]) || classroom[:id] == 0
     end
-    return pending
+    pending
   end
-
 end

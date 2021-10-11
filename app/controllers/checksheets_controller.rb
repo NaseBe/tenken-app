@@ -11,13 +11,13 @@ class ChecksheetsController < ApplicationController
     if @checksheet.save
       redirect_to tenken_path(@tenken.id)
     else
-     render :new
+      render :new
     end
   end
 
   def show
     @comment = Comment.new
-    @comments = @checksheet.comments.includes(:user).order("created_at DESC")
+    @comments = @checksheet.comments.includes(:user).order('created_at DESC')
   end
 
   def edit
@@ -47,6 +47,8 @@ class ChecksheetsController < ApplicationController
   end
 
   def checksheet_params
-    params.require(:checksheet).permit(:classroom_id, :projector, :control_panel, :mic, :pc, :bd_dvd_player, :remotes, :ohc, :screen, :ports, :cables, :expendables, :details, :staff, :helper, :date, :status, :image).merge(tenken_id: params[:tenken_id], user_id: current_user.id)
+    params.require(:checksheet).permit(:classroom_id, :projector, :control_panel, :mic, :pc, :bd_dvd_player, :remotes, :ohc, :screen, :ports, :cables, :expendables, :details, :staff, :helper, :date, :status, :image).merge(
+      tenken_id: params[:tenken_id], user_id: current_user.id
+    )
   end
 end
