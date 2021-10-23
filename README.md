@@ -10,13 +10,13 @@ TenkenApp
 
 # テスト用アカウント
 - Basic認証
-id: admin
-password: 7788
+id: admin  
+password: 7788  
 - テストユーザー１
-email: tenkenuser1@test.com
+email: tenkenuser1@test.com  
 password: testinguser1
 - テストユーザー２
-email: tenkenuser2@test.com
+email: tenkenuser2@test.com  
 password: testinguser2
 
 # 利用方法
